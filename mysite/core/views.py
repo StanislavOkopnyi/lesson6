@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 
-from core.models import Employees
+from .models import Employees
 
 # Create your views here.
 
@@ -11,7 +11,8 @@ def index(request):
 
 
 def table(request):
-    return render(request, "table.html")
+    employees = Employees.objects.order_by("full_name")
+    return render(request, "table.html", context={"employees": employees})
 
 
 def employee_of_month(request):

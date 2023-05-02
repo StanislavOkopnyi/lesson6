@@ -22,26 +22,22 @@
     <br>
     <br>
     <table>
-      <tr>
-        <th>ФИО</th>
-        <th>Должность</th>
-        <th>e-mail</th>
-      </tr>
-      <tr>
-        <th><a href="employee1.html">Владислав Сергеевич Б.</a></th>
-        <th>Директор</th>
-        <th>vs.bykov@roga_kopita.com</th>
-      </tr>
-      <tr>
-        <th>Юлия Сергеевна С.</th>
-        <th>Главный бухгалтер</th>
-        <th>us.sidorova@roga_kopita.com</th>
-      </tr>
-      <tr>
-        <th>Александр Витальевич М.</th>
-        <th>Зоотехник</th>
-        <th>as.melentyev@roga_kopita.com</th>
-      </tr>
+              <tr>
+          <th>ФИО</th>
+          <th>Должность</th>
+          <th>e-mail</th>
+        </tr>
+        <tr>
+          <th><a href="employee1.html">Владислав Сергеевич Б.</a></th>
+          <th>Директор</th>
+          <th>vs.bykov@roga_kopita.com</th>
+        </tr>
+        {%for employee in employees%}
+        <tr>
+          <td>{{employee.full_name}}</td>
+          <td>{{employee.position}}</td>
+          <td>{{employee.email}}</td>
+        {%endfor %}
     </table>
     <br>
     <br>
@@ -59,10 +55,8 @@
       display: flex;
     }
     table  {
-      justify-content: space-around;
       display: flex;
-      border-collapse: collapse;
-      
+      justify-content: space-around;
     }
     th, td {
       border: 1px solid;
